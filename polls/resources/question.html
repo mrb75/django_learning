@@ -1,0 +1,18 @@
+
+<html>
+<head></head>
+<body>
+
+<h1>
+{{ question }}
+</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+<li>
+<label>{{choice.choice_text}}</label>
+<input type="radio" value="{{choice.id}}" name="question{{question.id}}">
+</li>
+{% endfor %}
+</ul>
+<body>
+</html>
