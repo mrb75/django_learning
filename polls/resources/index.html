@@ -1,1 +1,19 @@
 
+<html>
+<head></head>
+<body>
+{% for question in last_questuion %}
+<h1>
+{{ question }}
+</h1>
+<ul>
+{% for choice in question.choice_set.all %}
+<li>
+<label>{{choice.choice_text}}</label>
+<input type="checkbox" value="{{choice.id}}" name="question{{question.id}}">
+</li>
+{% endfor %}
+</ul>
+{% endfor %}
+<body>
+</html>
