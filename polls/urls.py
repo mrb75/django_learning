@@ -5,7 +5,7 @@ from . import views
 from polls.models import Question
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('detail/<int:question_id>', views.detail, name='detail'),
+    path('', views.indexView.as_view(), name='index'),
+    path('detail/<int:pk>', views.detailView.as_view(), name='detail'),
     path('vote/<int:question_id>',views.vote,name='vote'),
 ]

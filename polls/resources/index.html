@@ -1,4 +1,3 @@
-
 <html>
 <head>
 {% csrf_token %}
@@ -16,6 +15,8 @@
 <li>
 <label>{{choice.choice_text}}</label>
 <input type="radio" value="{{choice.id}}" name="choice">
+<p>vote:</p>
+<p>{{choice.votes}}</p>
 </li>
 {% endfor %}
 <input type="submit" value="submit">
