@@ -4,6 +4,7 @@ from django.template import loader
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
 
 from .models import Question,Choice
 
@@ -20,7 +21,7 @@ class indexView(generic.ListView):
     template_name = 'polls/resources/index.html'
     context_object_name = 'last_questuion'
     def get_queryset(self):
-        return Question.objects.order_by('-pub_date')[:2]
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:2]
         
 # def detail(request, question_id):
 #     # try:
