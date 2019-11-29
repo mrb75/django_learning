@@ -18,7 +18,7 @@ from .models import Question,Choice
 #     # return HttpResponse(template.render(context,request))
 #     return render(request, 'polls/resources/index.html', {"last_questuion": last_questuion})
 class indexView(generic.ListView):
-    template_name = 'polls/resources/index.html'
+    template_name = 'polls/index.html'
     context_object_name = 'last_questuion'
     def get_queryset(self):
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:2]
@@ -31,7 +31,7 @@ class indexView(generic.ListView):
 #     question=get_object_or_404(Question,pk=question_id)
 #     return render(request, 'polls/resources/question.html', {"question": question})
 class detailView(generic.DetailView):
-    template_name = 'polls/resources/question.html'
+    template_name = 'polls/question.html'
     model = Question
 def vote(request, question_id):
     question=get_object_or_404(Question,pk=question_id)
